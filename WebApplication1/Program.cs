@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World from CI/CD TEST");
+var configuration = (IConfiguration) app.Services.GetService(typeof(IConfiguration))!;
+
+app.MapGet("/", () => "FAILING TEST!");
 
 app.Run();
